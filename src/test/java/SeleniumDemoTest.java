@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -81,6 +82,10 @@ public class SeleniumDemoTest {
 				"#tree-node > ol > li > ol > li.rct-node.rct-node-parent.rct-node-expanded > ol > li.rct-node.rct-node-parent.rct-node-expanded > ol > li:nth-child(1) > span > label > span.rct-checkbox > svg"));
 		this.driver.executeScript("arguments[0].scrollIntoView(true);", reactBox);
 		reactBox.click();
+
+		WebElement output = this.driver.findElement(By.cssSelector("#result"));
+
+		Assertions.assertTrue(output.getText().contains("react"));
 
 	}
 
